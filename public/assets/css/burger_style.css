@@ -1,0 +1,44 @@
+#ol {
+	float: right;
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	height: 100px;
+	width: 100px;
+}
+
+.burgerBut {
+	display: inline-block;
+
+}
+
+body {
+	background: #6B91F1;
+}
+
+#jumbo {
+	text-align: center;
+}
+
+h2 {
+	color: white;
+}
+
+p {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+li {
+	font-weight: bolder;
+	color: #390BD0;
+}
+
+.addBurger {
+	text-align: center;
+}
+
