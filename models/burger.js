@@ -12,9 +12,6 @@ id: {
 burger_name: {
 	type: Sequelize.STRING(50),
 	allowNull: false,
-	validate: {
-		 is: ["^[a-z]+$",'i']
-	}
 },
 devoured: {
 	type: Sequelize.BOOLEAN,
