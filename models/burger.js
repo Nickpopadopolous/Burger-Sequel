@@ -29,7 +29,7 @@ Burgers.sync();
 
 var burger = {
 	all: function(cb) {
-		Burgers.findAll().then(function(res) {
+		Burgers.findAll({}).then(function(res) {
 			cb(res);
 		});
 	},
