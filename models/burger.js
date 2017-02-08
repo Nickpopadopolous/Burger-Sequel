@@ -1,7 +1,7 @@
 var Sequelize = require('sequelize');
 var connection = require('../config/connection.js');
 
-var Burgers = sequelize.define('burgers', {
+var Burgers = connection.define('burgers', {
 	
 id: {
 	type: Sequelize.INTEGER,
@@ -13,24 +13,23 @@ burger_name: {
 	type: Sequelize.STRING(50),
 	allowNull: false,
 	validate: {
-		 is: ["^[a-z]+$",'i'];
+		 is: ["^[a-z]+$",'i']
 	}
 },
 devoured: {
 	type: Sequelize.BOOLEAN,
 	defaultValue: false
-},
-data: {
-	type: Sequelize.DATE,
-	default: Sequelize.literal('CURRENT_TIMESTAMP')
 }
+},
+ {
+	timestamps: false
 });
 
-
+Burgers.sync();
 
 var burger = {
 	all: function(cb) {
-		Burgers.findAll().then(function(res) {
+		Burgers.findAll({}).then(function(res) {
 			cb(res);
 		});
 	},
@@ -42,13 +41,13 @@ var burger = {
 			cb();
 		}).catch(function(err) {
 			cb(err);
-		});
+		})
 	
 	},
 
 	update: function(objColVals, condition, cb) {
 		Burgers.update({
-			devoured: true;
+			devoured: true
 		},
 		{
 			where: {id: objColVals}
