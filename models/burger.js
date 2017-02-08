@@ -29,31 +29,31 @@ Burgers.sync();
 
 var burger = {
 	all: function(cb) {
-		Burgers.findAll({}).then(function(res) {
+		Burgers.findAll().then(function(res) {
 			cb(res);
 		});
 	},
 
 	create: function(burger_name, cb) {
 		Burgers.create({
-			burger_name: burger_name,
-		}).then(function(data) {
+			burger_name: burger_name
+		}).then(function() {
 			cb();
 		}).catch(function(err) {
+			console.log(err);
 			cb(err);
-		})
+		});
 	
 	},
 
-	update: function(objColVals, condition, cb) {
+	update: function(objColVals, cb) {
 		Burgers.update({
 			devoured: true
 		},
 		{
 			where: {id: objColVals}
-	}).then(function(data){
+	}).then(function(){
 		cb();
-	}).catch(function(err){
 
 	});
 }
